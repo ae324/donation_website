@@ -1,25 +1,8 @@
 import React from "react";
+import logo from '../images/LPI logo (2).jpg';
+import '../style/App.css';
 
-import Header from "./static/components/header";
-
-function App() {
-  return (
-    <div>
-      <Header />
-    </div>
-  )
-}
-
-export default App;
-
-
-
-
-/*
-import logo from './LPI logo (2).jpg';
-import './App.css';
-
-function App() {
+const Header = ()  => {
   return (
     <div className="App">
       <header className="App-header">
@@ -38,5 +21,4 @@ function App() {
   );
 }
 
-export default App;
-*/
+export default Header;
