@@ -15,12 +15,24 @@ const Header = ()  => {
   ];
   const [info, setInfo] = React.useState(initialInfo);
 
-  function emitToDB() {
+  function EmitToDB() {
     var inName = document.getElementById("Name").value;
     var inAmount = document.getElementById("Amount").value;
     info.push({ name: inName, amount: inAmount });
     setInfo(() => info.map((item) => item));
+    ChangePage();
     return info;
+  }
+
+  function ChangePage() {
+    var inAmount = document.getElementById("Amount").value;
+
+    if (inAmount === /[0-9]+/g) {
+      //goto link "https://www.paypal.me/lpinj"
+    }
+    else {
+      //label invalid amount
+    }
   }
 
 
@@ -29,19 +41,12 @@ const Header = ()  => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Nj Homeless</h1>
-        <a
-          className="App-link"
-          href="https://www.paypal.me/lpinj"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        <button onClick={emitToDB}>
+        <button className="App-link" onClick={EmitToDB}>
           Donate Today
         </button>
-        </a>
+        <input type="text" id="Name"></input>
+        <input type="text" id="Amount"></input>
       </header>
-      <input type="text" id="Name"></input>
-      <input type="text" id="Amount"></input>
       <div className="List">
         <span>
           <ul>
