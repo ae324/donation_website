@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import { Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import logo from '../images/LPI logo (2).jpg';
 import '../style/App.css';
@@ -28,7 +28,7 @@ const Header = ()  => {
     var inAmount = document.getElementById("Amount").value;
 
     if (inAmount === /[0-9]+/g) {
-      //goto link "https://www.paypal.me/lpinj"
+      //goto link "https://www.paypal.me/lpinj" fetch
     }
     else {
       //label invalid amount
@@ -41,11 +41,9 @@ const Header = ()  => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Nj Homeless</h1>
-        <button className="App-link" onClick={EmitToDB}>
+        <Button className="App-link" onClick={EmitToDB}>
           Donate Today
-        </button>
-        <input type="text" id="Name"></input>
-        <input type="text" id="Amount"></input>
+        </Button>
       </header>
       <div className="List">
         <span>
