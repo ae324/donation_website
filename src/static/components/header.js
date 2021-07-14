@@ -37,22 +37,22 @@ const Header = ()  => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Nj Homeless</h1>
-        <a
+        {/*<a
           className="App-link"
           href="https://www.paypal.me/lpinj"
           target="_blank"
           rel="noopener noreferrer"
         >
           Donate Today
-        </a>
+        </a>*/}
         
-        {/*checkout ? (
+        {checkout ? (
           <PayPal />
         ) : ( 
           <Button className="App-link" onClick={EmitPayment}>
             Donate Today
           </Button>
-        )*/}
+        )}
   
       </header>
       {/*
