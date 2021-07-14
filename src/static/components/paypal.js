@@ -3,9 +3,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import '../style/App.css';
 
 
-const PayPal = ()  => {
+const PayPal = (props)  => {
 
-    const donationAmount = 10.00
+    const donationAmount = props.amountUSD;
+    console.log(donationAmount);
 
     const paypal = useRef();
 

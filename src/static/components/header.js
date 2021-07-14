@@ -9,9 +9,18 @@ import PayPal from "./paypal";
 const Header = ()  => {
 
   const [checkout, setCheckout] = useState(false);
+  const [inAmount, setInAmount] = useState(0);
   
   function EmitPayment() {
-    setCheckout(true);
+    var input = document.getElementById("Amount").value;
+    var regex = /^[1-9][0-9]*$/;
+    if (input.match(regex))
+    {
+      setInAmount(input);
+      setCheckout(true);
+      return;
+    }
+    console.log("error must be number 0-9");
   }
   
   
@@ -47,11 +56,14 @@ const Header = ()  => {
         </a>*/}
         
         {checkout ? (
-          <PayPal />
+          <PayPal amountUSD={inAmount} />
         ) : ( 
-          <Button className="App-link" onClick={EmitPayment}>
-            Donate Today
-          </Button>
+          <div>
+            <input type="text" id="Amount"></input>
+            <Button className="App-link" onClick={EmitPayment}>
+              Donate Today
+            </Button>
+          </div>
         )}
   
       </header>
