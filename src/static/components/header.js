@@ -1,12 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 
 import logo from '../images/LPI logo (2).jpg';
 import '../style/App.css';
+import PayPal from "./paypal";
 
 
 const Header = ()  => {
 
+  const [checkout, setCheckout] = useState(false);
+  
+  function EmitPayment() {
+    setCheckout(true);
+  }
+  
+  
+  
   const initialInfo = [
     {
       date: "05/18/1998",
@@ -15,7 +24,7 @@ const Header = ()  => {
   ];
   const [info, setInfo] = useState(initialInfo);
 
-  function EmitToDB() {
+  function getPaymentData() {
     var inDate = "02/28/1997" 
     var inAmount = 11
     info.push({ date: inDate, amount: inAmount });
@@ -28,9 +37,13 @@ const Header = ()  => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Nj Homeless</h1>
-        <Button className="App-link" onClick={EmitToDB}>
-          Donate Today
-        </Button>
+        {checkout ? (
+          <PayPal />
+        ) : ( 
+          <Button className="App-link" onClick={EmitPayment}>
+            Donate Today
+          </Button>
+        )}
       </header>
       <div className="List">
         <span>
