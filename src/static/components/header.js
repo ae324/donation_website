@@ -24,7 +24,7 @@ const Header = ()  => {
   ];
   const [info, setInfo] = useState(initialInfo);
 
-  function getPaymentData() {
+  function GetPaymentData() {
     var inDate = "02/28/1997" 
     var inAmount = 11
     info.push({ date: inDate, amount: inAmount });
@@ -37,14 +37,25 @@ const Header = ()  => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Nj Homeless</h1>
-        {checkout ? (
+        <a
+          className="App-link"
+          href="https://www.paypal.me/lpinj"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Donate Today
+        </a>
+        
+        {/*checkout ? (
           <PayPal />
         ) : ( 
           <Button className="App-link" onClick={EmitPayment}>
             Donate Today
           </Button>
-        )}
+        )*/}
+  
       </header>
+      {/*
       <div className="List">
         <span>
           <ul>
@@ -58,6 +69,7 @@ const Header = ()  => {
           </ul>
         </span>
       </div>
+      */}
     </div>
   );
 }
