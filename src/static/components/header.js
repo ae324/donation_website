@@ -9,32 +9,19 @@ const Header = ()  => {
 
   const initialInfo = [
     {
-      name: "name",
-      amount: 0
+      date: "05/18/1998",
+      amount: 10
     }
   ];
-  const [info, setInfo] = React.useState(initialInfo);
+  const [info, setInfo] = useState(initialInfo);
 
   function EmitToDB() {
-    var inName = document.getElementById("Name").value;
-    var inAmount = document.getElementById("Amount").value;
-    info.push({ name: inName, amount: inAmount });
+    var inDate = "02/28/1997" 
+    var inAmount = 11
+    info.push({ date: inDate, amount: inAmount });
     setInfo(() => info.map((item) => item));
-    ChangePage();
     return info;
   }
-
-  function ChangePage() {
-    var inAmount = document.getElementById("Amount").value;
-
-    if (inAmount === /[0-9]+/g) {
-      //goto link "https://www.paypal.me/lpinj" fetch
-    }
-    else {
-      //label invalid amount
-    }
-  }
-
 
   return (
     <div className="App">
@@ -51,7 +38,7 @@ const Header = ()  => {
             {info.map((item) => (
               <li key={item.id}>
                 <label>
-                  {item.name} $ {item.amount}
+                  {item.date} ${item.amount}
                 </label>
               </li>
             ))}
