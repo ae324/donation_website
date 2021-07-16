@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import '../style/App.css';
 
 const List = ()  => {
-  
+
   const initialInfo = [
       {
         date: "05/18/1998",
@@ -14,29 +14,26 @@ const List = ()  => {
     const [info, setInfo] = useState(initialInfo);
 
     function GetPaymentData() {
-      var inDate = "02/28/1997" 
+      var inDate = "02/28/1997"
       var inAmount = 11
       info.push({ date: inDate, amount: inAmount });
       setInfo(() => info.map((item) => item));
       return info;
     }
-
-    
     return (
       <div className="List">
         <span>
-          <ul>
+          <table>
             {info.map((item) => (
-              <li key={item.id}>
-                <label>
-                  {item.date} ${item.amount}
-                </label>
-              </li>
+              <tr key={item.id}>
+                  <td>{item.date}</td>
+                <td>${item.amount}</td>
+              </tr>
             ))}
-          </ul>
+          </table>
         </span>
       </div>
     );
 }
-    
+
 export default List;
