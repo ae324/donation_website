@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import logo from '../images/LPI logo (2).jpg';
 import '../style/App.css';
 import PayPal from "./paypal";
+import List from "./list";
 
 
 const Header = ()  => {
@@ -67,21 +68,7 @@ const Header = ()  => {
         )}
   
       </header>
-      {/*
-      <div className="List">
-        <span>
-          <ul>
-            {info.map((item) => (
-              <li key={item.id}>
-                <label>
-                  {item.date} ${item.amount}
-                </label>
-              </li>
-            ))}
-          </ul>
-        </span>
-      </div>
-      */}
+      <List />
     </div>
   );
 }
