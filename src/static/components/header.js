@@ -23,28 +23,10 @@ const Header = ()  => {
     }
     console.log("error must be number 0-9");
   }
-  
-  
-  
-  const initialInfo = [
-    {
-      date: "05/18/1998",
-      amount: 10
-    }
-  ];
-  const [info, setInfo] = useState(initialInfo);
-
-  function GetPaymentData() {
-    var inDate = "02/28/1997" 
-    var inAmount = 11
-    info.push({ date: inDate, amount: inAmount });
-    setInfo(() => info.map((item) => item));
-    return info;
-  }
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Nj Homeless</h1>
         {/*<a
@@ -66,8 +48,7 @@ const Header = ()  => {
             </Button>
           </div>
         )}
-  
-      </header>
+      </div>
       <List />
     </div>
   );
