@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 
 import '../style/App.css';
 
@@ -23,14 +23,14 @@ const List = ()  => {
     return (
       <div className="List">
         <span>
-          <table>
+          <Table>
             {info.map((item) => (
               <tr key={item.id}>
                   <td>{item.date}</td>
                 <td>${item.amount}</td>
               </tr>
             ))}
-          </table>
+          </Table>
         </span>
       </div>
     );
