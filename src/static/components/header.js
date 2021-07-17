@@ -18,11 +18,13 @@ const Header = ()  => {
   const [inAmount, setInAmount] = useState(0);
 
   function EmitPayment() {
-    var input = document.getElementById("Amount").value;
-    var regex = /^[1-9][0-9]*$/;
-    if (input.match(regex))
+    var nameInput = document.getElementById("Name").value;
+    var amountInput = document.getElementById("Amount").value;
+    var regexNum = /^[1-9][0-9]*$/;
+    var regexName = /^([a-z]|[A-Z])([a-z]|[A-z])*$/;
+    if ( amountInput.match(regexNum) && nameInput.match(regexName))
     {
-      setInAmount(input);
+      setInAmount(amountInput);
       setCheckout(true);
       return;
     }
@@ -49,6 +51,7 @@ const Header = ()  => {
           <PayPal amountUSD={inAmount} />
         ) : (
           <div>
+            <input type="text" id="Name"></input>&nbsp;
             <input type="text" id="Amount"></input>&nbsp;
             <Button className="App-link" onClick={EmitPayment}>
               Donate Today
