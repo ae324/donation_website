@@ -61,8 +61,7 @@ const Header = ()  => {
       </div>
       <List />
       <p>
-        About NJ Homeless<br>
-
+        About NJ Homeless<br/>
       </p>
       {/*<Carousel>
         <Carousel.Item>
