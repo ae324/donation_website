@@ -28,4 +28,12 @@
   color: darkgreen;
 }
 
-
+h3{
+  color: darkgreen;
+}
+ul{
+  text-align: left;
+}
+Button{
+  padding: 20px;
+}
