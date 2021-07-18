@@ -20,6 +20,14 @@ const List = ()  => {
       setInfo(() => info.map((item) => item));
       return info;
     }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            //GetPaymentData();
+        }, 3000); //runs every 3000 miliseconds or 3 seconds
+        return () => clearInterval(interval);
+      }, []);
+
     return (
       <div className="List">
         <span>
