@@ -5,15 +5,28 @@ import '../style/App.css';
 
 const List = ()  => {
 
-    const initialInfo = [
-      {
-        date: "05/18/1998",
-        amount: 10
-      }
-    ];
-    const [info, setInfo] = useState(initialInfo);
+    const [info, setInfo] = useState([]);
 
     function GetPaymentData() {
+        fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/payments.json')
+        .then(response => {
+            return response.json();
+        })
+        .then((data) => {
+            const transformedPayments = data.map(payments => {
+                return {
+                    name: payments.name,
+                    amount: payments.amount,
+                    date: payments.date,
+                };
+            });
+            setInfo(transformedPayments);
+            console.log(info);
+            //console.log(data);
+        });
+    }
+    
+    function SetPaymentData() {
       var inDate = "02/28/1997"
       var inAmount = 11
       info.push({ date: inDate, amount: inAmount });
@@ -30,12 +43,16 @@ const List = ()  => {
 
     return (
       <div className="List">
+          <Button onClick={GetPaymentData}>
+              GET DATA
+          </Button>
         <span>
           <Table>
             {info.map((item) => (
               <tr key={item.id}>
-                  <td>{item.date}</td>
+                <td>{item.name}</td>
                 <td>${item.amount}</td>
+                <td>{item.date}</td>
               </tr>
             ))}
           </Table>
