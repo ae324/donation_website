@@ -5,9 +5,17 @@ import '../style/App.css';
 
 const PayPal = (props)  => {
 
-    const donationAmount = props.amountUSD;
-    console.log(donationAmount);
+    const donatorName = props.name;
+    const donationAmount = props.payAmount;
+    const donationDate = props.date;
+    
+    const lst = [donatorName, donationAmount, donationDate];
 
+    function EmitToDB() {
+      console.log(lst);
+    }
+    
+    
     const paypal = useRef();
 
     useEffect(() => {
@@ -32,6 +40,7 @@ const PayPal = (props)  => {
             onApprove: async (data, actions) => {
               const order = await actions.order.capture();
               console.log(order);
+              EmitToDB();
             },
             onError: (err) => {
               console.log(err);
