@@ -6,7 +6,7 @@ import '../style/App.css';
 const PayPal = (props)  => {
 
     const donationAmount = props.amountUSD;
-    console.log(donationAmount);
+    //console.log(donationAmount);
 
     const paypal = useRef();
 
