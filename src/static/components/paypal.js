@@ -9,10 +9,25 @@ const PayPal = (props)  => {
     const donationAmount = props.payAmount;
     const donationDate = props.date;
     
-    const lst = [donatorName, donationAmount, donationDate];
+    const payment = {
+      name: donatorName, 
+      amount: donationAmount, 
+      date: donationDate,
+    };
 
-    function EmitToDB() {
-      console.log(lst);
+    async function EmitToDB() {
+      console.log("payment = :\t"+payment);
+      const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/payments.json', {
+        method: 'POST',
+        body: JSON.stringify(payment),
+        /**  headers not required for firebase
+        headers: {
+          'Content-Type': 'application/json'
+        }
+        */
+      });
+      const data = await response.json();
+      console.log(data);
     }
     
     

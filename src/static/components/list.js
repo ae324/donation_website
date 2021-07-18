@@ -5,7 +5,7 @@ import '../style/App.css';
 
 const List = ()  => {
 
-  const initialInfo = [
+    const initialInfo = [
       {
         date: "05/18/1998",
         amount: 10
