@@ -40,7 +40,6 @@ const Header = ()  => {
       setInAmount(amountInput);
       setInDate(dateInput);
       setCheckout(true);
-      //console.log(dateInput);
       return;
     }
     console.log("error must be number 0-9");
@@ -63,7 +62,7 @@ const Header = ()  => {
         </a>*/}
 
         {checkout ? (
-          <PayPal amountUSD={inAmount} />
+          <PayPal name={inName} payAmount={inAmount} date={inDate} />
         ) : (
           <div>
             <input type="text" id="Name"></input>&nbsp;

@@ -5,8 +5,12 @@ import '../style/App.css';
 
 const PayPal = (props)  => {
 
-    const donationAmount = props.amountUSD;
-    //console.log(donationAmount);
+    const donatorName = props.name;
+    const donationAmount = props.payAmount;
+    const donationDate = props.date;
+    
+    const lst = [donatorName, donationAmount, donationDate];
+    console.log(lst);
 
     const paypal = useRef();
 
