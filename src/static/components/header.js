@@ -16,6 +16,7 @@ const Header = ()  => {
 
   const [checkout, setCheckout] = useState(false);
   const [inAmount, setInAmount] = useState(0);
+  const [inName, setInName] = useState("");
 
   function EmitPayment() {
     var nameInput = document.getElementById("Name").value;
@@ -25,6 +26,7 @@ const Header = ()  => {
     if ( amountInput.match(regexNum) && nameInput.match(regexName))
     {
       setInAmount(amountInput);
+      setInName(nameInput);
       setCheckout(true);
       return;
     }
@@ -59,7 +61,7 @@ const Header = ()  => {
           </div>
         )}
       </div>
-      <List />
+      <List name={inName} amount={inAmount}/>
       {/*<Carousel>
         <Carousel.Item>
           <img

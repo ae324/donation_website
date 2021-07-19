@@ -3,7 +3,7 @@ import { Button, Table } from 'react-bootstrap';
 
 import '../style/App.css';
 
-const List = ()  => {
+const List = (props)  => {
 
   const initialInfo = [
       {
@@ -15,8 +15,9 @@ const List = ()  => {
 
     function GetPaymentData() {
       var inDate = "02/28/1997"
-      var inAmount = 11
-      info.push({ date: inDate, amount: inAmount });
+      var inAmount = props.amount
+      var inName = props.name
+      info.push({ date: inDate, amount: inAmount, name: inName });
       setInfo(() => info.map((item) => item));
       return info;
     }
@@ -26,8 +27,9 @@ const List = ()  => {
           <Table>
             {info.map((item) => (
               <tr key={item.id}>
-                  <td>{item.date}</td>
+                <td>{item.date}</td>
                 <td>${item.amount}</td>
+                <td>${item.name}</td>
               </tr>
             ))}
           </Table>
