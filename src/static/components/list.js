@@ -1,29 +1,32 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Button, Table } from 'react-bootstrap';
 
 import '../style/App.css';
 
 const List = ()  => {
 
-    const [info, setInfo] = useState([]);
+   const [info, setInfo] = useState([]);
 
-    function GetPaymentData() {
-        fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/payments.json')
-        .then(response => {
-            return response.json();
-        })
-        .then((data) => {
-            const transformedPayments = data.map(payments => {
-                return {
-                    name: payments.name,
-                    amount: payments.amount,
-                    date: payments.date,
-                };
-            });
-            setInfo(transformedPayments);
-            console.log(info);
-            //console.log(data);
-        });
+   async function GetPaymentData() {
+        const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/payments.json');
+        const data = await response.json();
+
+        const loadedPayments = [];
+
+        for (const key in data) {
+            var payment = {
+                id: key,
+                name: data[key].name,
+                amount: data[key].amount,
+                date: data[key].date,
+            };
+            loadedPayments.push(payment);
+        }
+        
+        setInfo(loadedPayments);
+        console.log(data);
+        console.log("loadedPayments = :\t"+loadedPayments);
+        console.log("info = :\t"+info);
     }
     
     function SetPaymentData() {
@@ -35,6 +38,7 @@ const List = ()  => {
     }
 
     useEffect(() => {
+        //GetPaymentData();
         const interval = setInterval(() => {
             //GetPaymentData();
         }, 3000); //runs every 3000 miliseconds or 3 seconds
@@ -48,13 +52,11 @@ const List = ()  => {
           </Button>
         <span>
           <Table>
-            {info.map((item) => (
-              <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>${item.amount}</td>
-                <td>{item.date}</td>
+            {/*info.map((item) => (
+              <tr key={item}>
+                <td>{item}</td>
               </tr>
-            ))}
+            ))*/}
           </Table>
         </span>
       </div>
