@@ -27,35 +27,29 @@ const List = ()  => {
         console.log("loadedPayments = :\t"+loadedPayments);
         console.log("info = :\t"+info);
     }
-    
-    function SetPaymentData() {
-      var inDate = "02/28/1997"
-      var inAmount = 11
-      info.push({ date: inDate, amount: inAmount });
-      setInfo(() => info.map((item) => item));
-      return info;
-    }
 
     useEffect(() => {
-        //GetPaymentData();
+        GetPaymentData();
         const interval = setInterval(() => {
-            //GetPaymentData();
-        }, 3000); //runs every 3000 miliseconds or 3 seconds
+            GetPaymentData();
+        }, 5000); //runs every 5000 miliseconds or 5 seconds
         return () => clearInterval(interval);
       }, []);
 
     return (
       <div className="List">
-          <Button onClick={GetPaymentData}>
+          {/*<Button onClick={GetPaymentData}>
               GET DATA
-          </Button>
+            </Button>*/}
         <span>
           <Table>
-            {/*info.map((item) => (
-              <tr key={item}>
-                <td>{item}</td>
+            {info.map((item) => (
+              <tr key={item.key}>
+                <td>{item.name}</td>
+                <td>${item.amount}</td>
+                <td>{item.date}</td>
               </tr>
-            ))*/}
+            ))}
           </Table>
         </span>
       </div>

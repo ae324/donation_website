@@ -20,11 +20,10 @@ const PayPal = (props)  => {
       const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/payments.json', {
         method: 'POST',
         body: JSON.stringify(payment),
-        /**  headers not required for firebase
+        //headers not required for firebase
         headers: {
           'Content-Type': 'application/json'
         }
-        */
       });
       const data = await response.json();
       console.log(data);
