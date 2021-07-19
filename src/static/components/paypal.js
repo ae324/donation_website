@@ -5,9 +5,32 @@ import '../style/App.css';
 
 const PayPal = (props)  => {
 
-    const donationAmount = props.amountUSD;
-    console.log(donationAmount);
+    const donatorName = props.name;
+    const donationAmount = props.payAmount;
+    const donationDate = props.date;
+    
+    const payment = {
+      name: donatorName, 
+      amount: donationAmount, 
+      date: donationDate,
+    };
 
+    async function EmitToDB() {
+      console.log("payment = :\t"+payment);
+      const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/payments.json', {
+        method: 'POST',
+        body: JSON.stringify(payment),
+        /**  headers not required for firebase
+        headers: {
+          'Content-Type': 'application/json'
+        }
+        */
+      });
+      const data = await response.json();
+      console.log(data);
+    }
+    
+    
     const paypal = useRef();
 
     useEffect(() => {
@@ -32,6 +55,7 @@ const PayPal = (props)  => {
             onApprove: async (data, actions) => {
               const order = await actions.order.capture();
               console.log(order);
+              EmitToDB();
             },
             onError: (err) => {
               console.log(err);

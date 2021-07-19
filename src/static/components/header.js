@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
-import Carousel from 'react-bootstrap/Carousel'
+import { Button, Carousel } from 'react-bootstrap';
+//import Carousel from 'react-bootstrap/Carousel'
 
 import logo from '../images/LPI logo (2).jpg';
 import slide1 from '../images/126423782_3479745328806741_2831548415582141972_n.jpg';
@@ -15,18 +15,30 @@ import List from "./list";
 const Header = ()  => {
 
   const [checkout, setCheckout] = useState(false);
+  
+  const [inName, setInName] = useState('');
   const [inAmount, setInAmount] = useState(0);
-  const [inName, setInName] = useState("");
+  const [inDate, setInDate] = useState('');
 
+  function DateTime() {
+    var showDate = new Date();
+    var addDate = showDate.getMonth()+1+'/'+showDate.getDate()+'/'+showDate.getFullYear();
+    return addDate;
+  }
+  
   function EmitPayment() {
     var nameInput = document.getElementById("Name").value;
     var amountInput = document.getElementById("Amount").value;
+    var dateInput = DateTime();
+
     var regexNum = /^[1-9][0-9]*$/;
     var regexName = /^([a-z]|[A-Z])([a-z]|[A-z])*$/;
+
     if ( amountInput.match(regexNum) && nameInput.match(regexName))
     {
-      setInAmount(amountInput);
       setInName(nameInput);
+      setInAmount(amountInput);
+      setInDate(dateInput);
       setCheckout(true);
       return;
     }
@@ -50,7 +62,7 @@ const Header = ()  => {
         </a>*/}
 
         {checkout ? (
-          <PayPal amountUSD={inAmount} />
+          <PayPal name={inName} payAmount={inAmount} date={inDate} />
         ) : (
           <div>
             <input type="text" id="Name"></input>&nbsp;
@@ -61,7 +73,7 @@ const Header = ()  => {
           </div>
         )}
       </div>
-      <List name={inName} amount={inAmount}/>
+      <List />
       {/*<Carousel>
         <Carousel.Item>
           <img
