@@ -39,6 +39,9 @@ const PayPal = (props)  => {
           .Buttons({
             createOrder: (data, actions, err) => {
               return actions.order.create({
+                application_context: {
+                  shipping_preference: 'NO_SHIPPING'
+                },
                 intent: "CAPTURE",
                 purchase_units: [
                   {
