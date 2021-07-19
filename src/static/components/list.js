@@ -14,13 +14,12 @@ const List = ()  => {
         const loadedPayments = [];
 
         for (const key in data) {
-            var payment = {
+          loadedPayments.push({
                 id: key,
                 name: data[key].name,
                 amount: data[key].amount,
                 date: data[key].date,
-            };
-            loadedPayments.push(payment);
+            });
         }
         
         setInfo(loadedPayments);
