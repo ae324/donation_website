@@ -7,6 +7,7 @@ const List = ()  => {
 
   const initialInfo = [
       {
+        name: "Allison Eglow",
         date: "05/18/1998",
         amount: 10
       }
@@ -16,7 +17,8 @@ const List = ()  => {
     function GetPaymentData() {
       var inDate = "02/28/1997"
       var inAmount = 11
-      info.push({ date: inDate, amount: inAmount });
+      var inName = "Allie"
+      info.push({ date: inDate, amount: inAmount, name: inName });
       setInfo(() => info.map((item) => item));
       return info;
     }
@@ -24,10 +26,16 @@ const List = ()  => {
       <div className="List">
         <span>
           <Table>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Amount</th>
+            </tr>
             {info.map((item) => (
-              <tr key={item.id}>
-                  <td>{item.date}</td>
+              <tr>
+                <td>{item.date}</td>
                 <td>${item.amount}</td>
+                <td>{item.name}</td>
               </tr>
             ))}
           </Table>

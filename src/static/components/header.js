@@ -1,12 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
-import Carousel from 'react-bootstrap/Carousel'
-
 import logo from '../images/LPI logo (2).jpg';
-import slide1 from '../images/126423782_3479745328806741_2831548415582141972_n.jpg';
-import slide2 from '../images/NEIL AND LOAD AT JCC NOV 1  2018.jpg';
-import slide3 from '../images/slide3.jpg';
-
 import '../style/App.css';
 import PayPal from "./paypal";
 import List from "./list";
