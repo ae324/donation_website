@@ -29,9 +29,9 @@ const Header = ()  => {
     <div className="App">
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Nj Homeless</h1>
+        <h1>NJ Homeless</h1>
         <h4>We are a 501(c)(3) non-profit corporation on a mission to provide for the  "homeless, profoundly poor & disenfranchised"</h4>
-        <p><a href={"www.njhomeless.org"}>Check Out Our Website</a></p>
+        <h5>Instructions for Donating: Write your name in the left box, write the desired donation amount and then Click "Donate"</h5>
         {/*<a
           className="App-link"
           href="https://www.paypal.me/njhomeless"
