@@ -1,6 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Carousel } from 'react-bootstrap';
+//import Carousel from 'react-bootstrap/Carousel'
+
 import logo from '../images/LPI logo (2).jpg';
+import slide1 from '../images/126423782_3479745328806741_2831548415582141972_n.jpg';
+import slide2 from '../images/NEIL AND LOAD AT JCC NOV 1  2018.jpg';
+import slide3 from '../images/slide3.jpg';
+
 import '../style/App.css';
 import PayPal from "./paypal";
 import List from "./list";
@@ -9,16 +15,30 @@ import List from "./list";
 const Header = ()  => {
 
   const [checkout, setCheckout] = useState(false);
+  
+  const [inName, setInName] = useState('');
   const [inAmount, setInAmount] = useState(0);
+  const [inDate, setInDate] = useState('');
 
+  function DateTime() {
+    var showDate = new Date();
+    var addDate = showDate.getMonth()+1+'/'+showDate.getDate()+'/'+showDate.getFullYear();
+    return addDate;
+  }
+  
   function EmitPayment() {
     var nameInput = document.getElementById("Name").value;
     var amountInput = document.getElementById("Amount").value;
+    var dateInput = DateTime();
+
     var regexNum = /^[1-9][0-9]*$/;
     var regexName = /^([a-z]|[A-Z])([a-z]|[A-z])*$/;
+
     if ( amountInput.match(regexNum) && nameInput.match(regexName))
     {
+      setInName(nameInput);
       setInAmount(amountInput);
+      setInDate(dateInput);
       setCheckout(true);
       return;
     }
@@ -29,9 +49,9 @@ const Header = ()  => {
     <div className="App">
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>NJ Homeless</h1>
+        <h1>Nj Homeless</h1>
         <h4>We are a 501(c)(3) non-profit corporation on a mission to provide for the  "homeless, profoundly poor & disenfranchised"</h4>
-        <h5>Instructions for Donating: Write your name in the left box, write the desired donation amount and then Click "Donate"</h5>
+        <p><a href={"www.njhomeless.org"}>Check Out Our Website</a></p>
         {/*<a
           className="App-link"
           href="https://www.paypal.me/njhomeless"
@@ -42,7 +62,7 @@ const Header = ()  => {
         </a>*/}
 
         {checkout ? (
-          <PayPal amountUSD={inAmount} />
+          <PayPal name={inName} payAmount={inAmount} date={inDate} />
         ) : (
           <div>
             <input type="text" id="Name"></input>&nbsp;
