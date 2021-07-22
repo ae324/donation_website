@@ -65,8 +65,8 @@ const Header = ()  => {
           <PayPal name={inName} payAmount={inAmount} date={inDate} />
         ) : (
           <div>
-            <input type="text" id="Name"></input>&nbsp;
-            <input type="text" id="Amount"></input>&nbsp;
+            <input type="text" id="Name" placeholder="Enter your name or N/A"></input>&nbsp;
+            <input type="text" id="Amount" placeholder="Enter the amount to donate"></input>&nbsp;
             <Button className="App-link" onClick={EmitPayment}>
               Donate Today
             </Button>
