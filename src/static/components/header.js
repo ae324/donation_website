@@ -46,7 +46,9 @@ const Header = ()  => {
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Welcome to the NJ Homeless Donation Site!</h1>
-        <h4>We are a 501(c)(3) non-profit corporation on a mission to provide for the  "homeless, profoundly poor & disenfranchised"<br/><br/></h4>
+        <h4>We are a 501(c)(3) non-profit corporation on a mission to provide for the  "homeless, profoundly poor & disenfranchised"</h4>
+        <p><a href={"www.njhomeless.org"}>Check Out Our Website</a></p>
+
         {/*<a
           className="App-link"
           href="https://www.paypal.me/njhomeless"
@@ -59,22 +61,16 @@ const Header = ()  => {
           <PayPal name={inName} payAmount={inAmount} date={inDate} />
         ) : (
           <div>
-            <input type="text" id="Name"></input>&nbsp;
-            <input type="text" id="Amount"></input>&nbsp;
-            <Button className="App-link" onClick={EmitPayment}>
+            <input type="text" id="Name" placeholder={"Full Name"}></input>&nbsp;
+            <input type="text" id="Amount" placeholder={"Enter Donation Amount"}></input>&nbsp;
+            <Button variant="outline-success" className="App-link" onClick={EmitPayment}>
               Donate Today
             </Button>
           </div>
         )}
       </div>
-      <h5>Active Donation List</h5>
+      <br/><h5>Active Donation List</h5>
       <List />
-      <h3>About NJ Homeless</h3>
-      <p><i>We are a 501(c)(3) non-profit corporation on a mission to provide for the  "homeless, profoundly poor & disenfranchised"</i>
-     </p>
-      <Button variant="success"><a href={"www.njhomeless.org"}>Check Out Our Website</a>
-      </Button>
-
     </div>
   );
 }
