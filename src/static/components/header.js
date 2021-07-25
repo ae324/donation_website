@@ -32,7 +32,7 @@ const Header = ()  => {
     var dateInput = DateTime();
 
     var regexNum = /^[1-9][0-9]*$/;
-    var regexName = /^([a-z]|[A-Z])([a-z]|[A-z])*$/;
+    var regexName = /^([a-z]|[A-Z])(\s|[a-z]|[A-z])*$/;
 
     if ( amountInput.match(regexNum) && nameInput.match(regexName))
     {
