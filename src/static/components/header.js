@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Button, Carousel } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Carousel, Alert } from 'react-bootstrap';
 //import Carousel from 'react-bootstrap/Carousel'
 
 import logo from '../images/LPI logo (2).jpg';
@@ -26,13 +26,15 @@ const Header = ()  => {
     return addDate;
   }
   
+  const [show, setShow] = useState(false);
+
   function EmitPayment() {
     var nameInput = document.getElementById("Name").value;
     var amountInput = document.getElementById("Amount").value;
     var dateInput = DateTime();
 
     var regexNum = /^[1-9][0-9]*$/;
-    var regexName = /^([a-z]|[A-Z])(\s|[a-z]|[A-z])*$/;
+    var regexName = /^([a-z]|[A-Z])(\/|\s|[a-z]|[A-z])*$/;
 
     if ( amountInput.match(regexNum) && nameInput.match(regexName))
     {
@@ -42,7 +44,7 @@ const Header = ()  => {
       setCheckout(true);
       return;
     }
-    console.log("error must be number 0-9");
+    setShow(true);
   }
 
   return (
@@ -51,22 +53,30 @@ const Header = ()  => {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Nj Homeless</h1>
         <h4>We are a 501(c)(3) non-profit corporation on a mission to provide for the  "homeless, profoundly poor & disenfranchised"</h4>
-        <p><a href={"www.njhomeless.org"}>Check Out Our Website</a></p>
-        {/*<a
-          className="App-link"
-          href="https://www.paypal.me/njhomeless"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Donate Today
-        </a>*/}
+        
 
         {checkout ? (
           <PayPal name={inName} payAmount={inAmount} date={inDate} />
         ) : (
           <div>
-            <input type="text" id="Name" placeholder="Enter your name or N/A"></input>&nbsp;
-            <input type="text" id="Amount" placeholder="Enter the amount to donate"></input>&nbsp;
+            {show ? (
+              <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+                <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+                <p>
+                  Name can only consist of spaces and upper and lowercase letters
+                </p>
+                <p>
+                  Donation amount must be an integer rounded to the nearest USD
+                </p>
+                <p>
+                  Neither can be left blank
+                </p>
+              </Alert>
+            ) : (<div></div>)
+            }
+
+            <input type="text" id="Name" placeholder="Your Name or N/A"></input>&nbsp;
+            <input type="text" id="Amount" placeholder="Donation Amount USD"></input>&nbsp;
             <Button className="App-link" onClick={EmitPayment}>
               Donate Today
             </Button>
