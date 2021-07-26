@@ -32,4 +32,15 @@ h3{
   color: darkgreen;
 }
 
+.App #Donate {
+  background-color: darkgreen;
+  color: white;
+  border-color: white;
 
+}
+
+.App #Donate:hover {
+  background-color: white;
+  color: darkgreen;
+  border-color: darkgreen;
+}
