@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Times New Roman", "Calibri", serif;
 }
 
 .App-logo {
@@ -30,17 +31,4 @@
 
 h1{
   color: darkgreen;
-}
-
-.App #Donate {
-  background-color: darkgreen;
-  color: white;
-  border-color: white;
-
-}
-
-.App #Donate:hover {
-  background-color: white;
-  color: darkgreen;
-  border-color: darkgreen;
 }
