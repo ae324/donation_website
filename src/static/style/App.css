@@ -32,3 +32,32 @@
 h1{
   color: darkgreen;
 }
+
+h4{
+  color: darkgreen;
+}
+
+.App #Donate {
+  background-color: darkgreen;
+  color: white;
+  border-color: white;
+
+}
+
+.App #Donate:hover {
+  background-color: white;
+  color: darkgreen;
+  border-color: darkgreen;
+}
+
+.Input {
+  color: darkgreen;
+}
+
+.List {
+  color: darkgreen;
+}
+
+.List #donationTable {
+  color: darkgreen;
+}

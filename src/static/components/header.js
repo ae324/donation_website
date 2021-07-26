@@ -65,8 +65,8 @@ const Header = ()  => {
             ) : (<div></div>)
             }
 
-            <input type="text" id="Name" placeholder="Your Name or N/A"></input>&nbsp;
-            <input type="text" id="Amount" placeholder="Donation Amount USD"></input>&nbsp;
+            <input type="text" id="Name" placeholder="Your Name or N/A" className="Input"></input>&nbsp;
+            <input type="text" id="Amount" placeholder="Donation Amount USD" className="Input"></input>&nbsp;
             <Button className="App-link" id="Donate" variant="success" onClick={EmitPayment}>
               Donate Today
             </Button>
