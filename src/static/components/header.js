@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Alert } from 'react-bootstrap';
+import { Button, Alert, Container } from 'react-bootstrap';
 import logo from '../images/LPI logo (2).jpg';
 import '../style/App.css';
 import PayPal from "./paypal";
@@ -64,12 +64,14 @@ const Header = ()  => {
               </Alert>
             ) : (<div></div>)
             }
-
-            <input type="text" id="Name" placeholder="Your Name or N/A" className="Input"></input>&nbsp;
-            <input type="text" id="Amount" placeholder="Donation Amount USD" className="Input"></input>&nbsp;
-            <Button className="App-link" id="Donate" variant="success" onClick={EmitPayment}>
-              Donate Today
-            </Button>
+            <Container className="InputContainer">
+              <input type="text" id="Name" placeholder="Your Name or N/A" className="Input"></input>&nbsp;
+              <input type="text" id="Amount" placeholder="Donation Amount USD" className="Input"></input>&nbsp;
+              <br />
+              <Button className="App-link" id="Donate" variant="success" onClick={EmitPayment}>
+                Donate Today
+              </Button>&nbsp;
+            </Container>
           </div>
         )}
       </div><br/>
