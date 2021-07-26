@@ -42,7 +42,7 @@ const List = ()  => {
               GET DATA
             </Button>*/}
         <span>
-          <Table>
+          <Table id="donationTable">
             {info.map((item) => (
               <tr key={item.key}>
                 <td>{item.name}</td>
