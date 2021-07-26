@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Times New Roman", "Calibri", serif;
 }
 
 .App-logo {
@@ -31,5 +32,4 @@
 h1{
   color: darkgreen;
 }
-
 

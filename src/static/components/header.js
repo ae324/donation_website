@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Carousel, Alert } from 'react-bootstrap';
-//import Carousel from 'react-bootstrap/Carousel'
-
+import { Button, Alert } from 'react-bootstrap';
 import logo from '../images/LPI logo (2).jpg';
-import slide1 from '../images/126423782_3479745328806741_2831548415582141972_n.jpg';
-import slide2 from '../images/NEIL AND LOAD AT JCC NOV 1  2018.jpg';
-import slide3 from '../images/slide3.jpg';
-
 import '../style/App.css';
 import PayPal from "./paypal";
 import List from "./list";
@@ -15,7 +9,7 @@ import List from "./list";
 const Header = ()  => {
 
   const [checkout, setCheckout] = useState(false);
-  
+
   const [inName, setInName] = useState('');
   const [inAmount, setInAmount] = useState(0);
   const [inDate, setInDate] = useState('');
@@ -25,7 +19,7 @@ const Header = ()  => {
     var addDate = showDate.getMonth()+1+'/'+showDate.getDate()+'/'+showDate.getFullYear();
     return addDate;
   }
-  
+
   const [show, setShow] = useState(false);
 
   function EmitPayment() {
@@ -51,10 +45,8 @@ const Header = ()  => {
     <div className="App">
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Nj Homeless</h1>
-        <h4>We are a 501(c)(3) non-profit corporation on a mission to provide for the  "homeless, profoundly poor & disenfranchised"</h4>
-        
-
+        <h1 style={{color:"darkgreen"}}>Nj Homeless</h1>
+        <h4 style={{color:"darkgreen"}}>We are a 501(c)(3) non-profit corporation on a mission to provide for the  "homeless, profoundly poor & disenfranchised"</h4>
         {checkout ? (
           <PayPal name={inName} payAmount={inAmount} date={inDate} />
         ) : (
@@ -62,13 +54,11 @@ const Header = ()  => {
             {show ? (
               <Alert variant="danger" onClose={() => setShow(false)} dismissible>
                 <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-                <p>
+                <p style={{fontSize:"large"}}>
                   Name can only consist of spaces and upper and lowercase letters
-                </p>
-                <p>
+                <br/>
                   Donation amount must be an integer rounded to the nearest USD
-                </p>
-                <p>
+               <br/>
                   Neither can be left blank
                 </p>
               </Alert>
@@ -82,32 +72,9 @@ const Header = ()  => {
             </Button>
           </div>
         )}
-      </div>
+      </div><br/>
+      <h4>Thank You To The People Below For Donating!</h4>
       <List />
-      {/*<Carousel>
-        <Carousel.Item>
-          <img
-              className="d-block w-100"
-              src={slide1}
-              alt="First slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-              className="d-block w-100"
-              src={slide2}
-              alt="Second slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-              className="d-block w-100"
-              src={slide3}
-              alt="Third slide"
-          />
-          </Carousel.Item>
-      </Carousel>*/}
-
     </div>
   );
 }
