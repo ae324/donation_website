@@ -56,7 +56,7 @@ const List = ()  => {
     useEffect(() => {
         GetPaymentData();      
         const interval = setInterval(() => {
-            //GetPaymentData();
+            GetPaymentData();
         }, 5000); //runs every 5000 miliseconds or 5 seconds
         return () => clearInterval(interval);
       }, []);
