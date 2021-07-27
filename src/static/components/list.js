@@ -1,12 +1,37 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Button, Table } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
+import firebase from "firebase/app";
+import "firebase/analytics";
+import "firebase/auth";
+import "firebase/firestore";
 
 import '../style/App.css';
 
+
 const List = ()  => {
 
-   const [info, setInfo] = useState([]);
+  const [info, setInfo] = useState([]);
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyD0lYPJNup3fkj_UhbAygW4K-rybFdwj9Q",
+    authDomain: "nj-homeless-donation-website.firebaseapp.com",
+    databaseURL: "https://nj-homeless-donation-website-default-rtdb.firebaseio.com",
+    projectId: "nj-homeless-donation-website",
+    storageBucket: "nj-homeless-donation-website.appspot.com",
+    messagingSenderId: "493996706818",
+    appId: "1:493996706818:web:fc4eb85a590f5723246b1b",
+    measurementId: "G-J2PYH942NE"
+  };
+  // Initialize Firebase
+  //firebase.initializeApp(firebaseConfig);
+  //firebase.analytics();
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }else {
+      firebase.app(); // if already initialized, use that one
+  }
 
+   
    async function GetPaymentData() {
         const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/payments.json');
         const data = await response.json();
@@ -29,9 +54,9 @@ const List = ()  => {
     }
 
     useEffect(() => {
-        GetPaymentData();
+        GetPaymentData();      
         const interval = setInterval(() => {
-            GetPaymentData();
+            //GetPaymentData();
         }, 5000); //runs every 5000 miliseconds or 5 seconds
         return () => clearInterval(interval);
       }, []);
