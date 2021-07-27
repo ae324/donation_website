@@ -33,7 +33,9 @@ const Header = ()  => {
     if ( amountInput.match(regexNum) && nameInput.match(regexName))
     {
       setInName(nameInput);
+      amountInput = amountInput/1;
       setInAmount(amountInput);
+      //console.log("amountInput=:\t"+amountInput);
       setInDate(dateInput);
       setCheckout(true);
       return;
