@@ -31,7 +31,7 @@ const List = ()  => {
       firebase.app(); // if already initialized, use that one
   }
 
-  var database = firebase.database();
+  //var database = firebase.database();
    
    async function GetPaymentData() {
         const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/payments.json');
