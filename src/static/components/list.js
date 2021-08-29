@@ -34,7 +34,7 @@ const List = ()  => {
   //var database = firebase.database();
    
    async function GetPaymentData() {
-        const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/payments.json');
+        const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/newPayments.json');
         const data = await response.json();
 
         const loadedPayments = [];
