@@ -11,7 +11,7 @@ import '../style/App.css';
 const List = ()  => {
 
   const [info, setInfo] = useState([]);
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyD0lYPJNup3fkj_UhbAygW4K-rybFdwj9Q",
     authDomain: "nj-homeless-donation-website.firebaseapp.com",
@@ -32,7 +32,7 @@ const List = ()  => {
   }
 
   //var database = firebase.database();
-   
+
    async function GetPaymentData() {
         const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/newPayments.json');
         const data = await response.json();
@@ -47,7 +47,7 @@ const List = ()  => {
                 date: data[key].date,
             });
         }
-        
+
         setInfo(loadedPayments);
         console.log(data);
         console.log("loadedPayments = :\t"+loadedPayments);
@@ -55,7 +55,7 @@ const List = ()  => {
     }
 
     useEffect(() => {
-        GetPaymentData();      
+        GetPaymentData();
         const interval = setInterval(() => {
             GetPaymentData();
         }, 5000); //runs every 5000 miliseconds or 5 seconds
