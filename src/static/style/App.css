@@ -21,7 +21,7 @@
 }
 
 .App-link {
-  color: darkgreen;
+  color: black;
 }
 
 h1{
@@ -60,4 +60,7 @@ h4{
 .center{
   justify-content:center;
   align-content: center
+}
+.textcenter{
+  text-align: center;
 }
