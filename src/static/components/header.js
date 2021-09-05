@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Alert } from 'react-bootstrap';
+import { Button, Alert, Container } from 'react-bootstrap';
 import logo from '../images/LPI logo (2).jpg';
 import '../style/App.css';
 import PayPal from "./paypal";
@@ -27,13 +27,15 @@ const Header = ()  => {
     var amountInput = document.getElementById("Amount").value;
     var dateInput = DateTime();
 
-    var regexNum = /^[1-9][0-9]*$/;
+    var regexNum = /^[1-9][0-9]*(.00)?$/;
     var regexName = /^([a-z]|[A-Z])(\/|\s|[a-z]|[A-z])*$/;
 
     if ( amountInput.match(regexNum) && nameInput.match(regexName))
     {
       setInName(nameInput);
+      amountInput = amountInput/1;
       setInAmount(amountInput);
+      //console.log("amountInput=:\t"+amountInput);
       setInDate(dateInput);
       setCheckout(true);
       return;
@@ -55,21 +57,23 @@ const Header = ()  => {
               <Alert variant="danger" onClose={() => setShow(false)} dismissible>
                 <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
                 <p style={{fontSize:"large"}}>
-                  Name can only consist of spaces and upper and lowercase letters
+                  Name can only consist of spaces and upper and lowercase letters (John Doe)
                 <br/>
-                  Donation amount must be an integer rounded to the nearest USD
+                  Donation amount must be an integer rounded to the nearest USD (20 or 20.00)
                <br/>
                   Neither can be left blank
                 </p>
               </Alert>
             ) : (<div></div>)
             }
-
-            <input type="text" id="Name" placeholder="Your Name or N/A" className="Input"></input>&nbsp;
-            <input type="text" id="Amount" placeholder="Donation Amount USD" className="Input"></input>&nbsp;
-            <Button className="App-link" id="Donate" variant="success" onClick={EmitPayment}>
-              Donate Today
-            </Button>
+            <Container className="InputContainer">
+              <input type="text" id="Name" placeholder="Your Name or N/A" className="Input"></input>&nbsp;
+              <input type="text" id="Amount" placeholder="Donation Amount USD" className="Input"></input>&nbsp;
+              <br />
+              <Button className="App-link" id="Donate" variant="success" onClick={EmitPayment}>
+                Donate Today
+              </Button>&nbsp;
+            </Container>
           </div>
         )}
       </div><br/>
