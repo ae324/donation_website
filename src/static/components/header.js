@@ -149,6 +149,7 @@ const Header = () => {
                 diamondbackadventuresociety@gmail.com</p>
                 </p>
             </Row>
+            <List />
         </Container>
     );
 }

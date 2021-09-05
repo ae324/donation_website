@@ -67,6 +67,7 @@ const List = ()  => {
           {/*<Button onClick={GetPaymentData}>
               GET DATA
             </Button>*/}
+        <h4>Thank You To The People Below For Donating!</h4>
         <span>
           <Table id="donationTable">
             {info.map((item) => (
