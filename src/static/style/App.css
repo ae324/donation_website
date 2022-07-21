@@ -49,11 +49,6 @@
 .copyright {
   text-align: right;
   position: absolute;
-  width: 95%;
-  height: 100%;
-  top: 325%;
-  left: 50%;
-  transform: translate(-50%, -10%);
 
 }
 .Main {
