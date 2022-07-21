@@ -46,7 +46,7 @@ const Header = () => {
             <Container className="Main">
                 <Row>
                     <Col>
-                        <h2 style={{textAlign: "center"}}>NJ Homeless & Livingston Philanthropies, Inc.</h2>
+                        <h2 style={{textAlign: "center"}}>NJ Homeless</h2>
 
                     </Col>
                 </Row>
