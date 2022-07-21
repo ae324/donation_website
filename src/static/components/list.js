@@ -4,7 +4,6 @@ import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
-
 import '../style/App.css';
 
 
@@ -46,12 +45,14 @@ const List = ()  => {
                 amount: data[key].amount,
                 date: data[key].date,
             });
+
         }
 
         setInfo(loadedPayments);
         console.log(data);
         console.log("loadedPayments = :\t"+loadedPayments);
         console.log("info = :\t"+info);
+
     }
 
     useEffect(() => {
@@ -68,6 +69,8 @@ const List = ()  => {
               GET DATA
             </Button>*/}
         <h4>Thank You To The People Below For Donating!</h4>
+
+          <div>
         <span>
           <Table id="donationTable">
             {info.map((item) => (
@@ -79,6 +82,7 @@ const List = ()  => {
             ))}
           </Table>
         </span>
+          </div>
       </div>
     );
 }
