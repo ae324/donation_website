@@ -17,7 +17,7 @@ const PayPal = (props)  => {
 
     async function EmitToDB() {
       //console.log("payment = :\t"+payment);
-      const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/newPayments.json', {
+      const response = await fetch('https://nj-homeless-donation-website-default-rtdb.firebaseio.com/newPayments2.json', {
         method: 'POST',
         body: JSON.stringify(payment),
         //headers not required for firebase
