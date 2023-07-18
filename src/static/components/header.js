@@ -46,12 +46,11 @@ const Header = () => {
             <Container className="Main">
                 <Row>
                     <Col>
-                        <h2 style={{textAlign: "center"}}>NJ Homeless</h2>
+                        <h2 style={{textAlign: "center"}}><br></br>NJ Homeless Willow Lake Camp Donation Event</h2>
 
                     </Col>
                 </Row>
-                <Row><br/></Row>
-
+            
                 <Row className="center">
                     {checkout ? (
                         <PayPal name={inName} payAmount={inAmount} date={inDate}/>
